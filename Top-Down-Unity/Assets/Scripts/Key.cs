@@ -22,7 +22,7 @@ public class Key : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
         {
             Debug.Log("ive been collected!");
-            //destroy the key
+            Destroy(this)//destroy the key
         }
     }
 }

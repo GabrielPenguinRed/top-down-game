@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
         if(collision.gameObject.tag.Equals("Gate") && hasKey == true)
         {
-            Debug.Log("unlocked door!");
+            Debug.Log("unlocked Gate!");
             //take to new scene
         }
     }
