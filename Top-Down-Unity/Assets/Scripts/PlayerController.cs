@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     private SpriteRenderer sr;
+    public bool hasKey = false;
 
     //sprite variables
     public Sprite upSprite;
@@ -70,6 +71,18 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("change scene");
             SceneManager.LoadScene("Outside");
+        }
+
+        if(collision.gameObject.tag.Equals("key"))
+        {
+            Debug.Log("obtained key");
+            hasKey = true; //player has the key now
+        }
+
+        if(collision.gameObject.tag.Equals("Gate") && hasKey == true)
+        {
+            Debug.Log("unlocked door!");
+            //take to new scene
         }
     }
 
