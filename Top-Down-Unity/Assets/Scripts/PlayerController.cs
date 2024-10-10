@@ -17,10 +17,18 @@ public class PlayerController : MonoBehaviour
 
     //public Rigidbody2D rb;
 
+    public static PlayerController instance;
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        if (instance = null)
+        {
+            Destroy(gameObject); //then destroy it
+        }
+            
+        instance = this; //reassign the instance to the current player
+        GameObject.DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -82,9 +90,8 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag.Equals("Gate") && hasKey == true)
         {
             Debug.Log("unlocked Gate!");
-            //take to new scene
+            SceneManager.LoadScene(2); //take to new scene
         }
     }
-
 }
 

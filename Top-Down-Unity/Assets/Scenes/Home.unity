@@ -709,5 +709,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 432986991835234877, guid: 9d4af925f81d9b046bd33f2daab7a1e5, type: 3}
+      propertyPath: upSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2aed54330ea6432448104506d9b7c7b0, type: 3}
+    - target: {fileID: 432986991835234877, guid: 9d4af925f81d9b046bd33f2daab7a1e5, type: 3}
+      propertyPath: leftSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3215f14d3c2bb23449a7b45aea6479a5, type: 3}
+    - target: {fileID: 432986991835234877, guid: 9d4af925f81d9b046bd33f2daab7a1e5, type: 3}
+      propertyPath: frontSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bf45cf89fcdf6ba468532ea1a61bf249, type: 3}
+    - target: {fileID: 432986991835234877, guid: 9d4af925f81d9b046bd33f2daab7a1e5, type: 3}
+      propertyPath: rightSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 80df7f3bfe5f9a649a23295a5808ffcf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4af925f81d9b046bd33f2daab7a1e5, type: 3}
