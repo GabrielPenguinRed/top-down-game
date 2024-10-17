@@ -15,14 +15,22 @@ public class PlayerController : MonoBehaviour
     public Sprite rightSprite;
     public Sprite frontSprite;
 
+    //audio variables
+    public AudioSource soundEffects;
+    public AudioClip itemCollect;
+    public AudioClip gateEnter;
+    public AudioClip[] sounds;
+
+
     //public Rigidbody2D rb;
 
     public static PlayerController instance;
     // Start is called before the first frame update
     void Start()
     {
+        soundEffects = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
-        if (instance = null)
+        if (instance = null) //if another instance of the player is in the scene
         {
             Destroy(gameObject); //then destroy it
         }
@@ -75,7 +83,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //check if colliding with a game object with specific tag
-        if(collision.gameObject.tag.Equals("Door"))
+        if(collision.gameObject.tag.Equals("door1"))
         {
             Debug.Log("change scene");
             SceneManager.LoadScene("Outside");
@@ -84,12 +92,14 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag.Equals("key"))
         {
             Debug.Log("obtained key");
+            soundEffects.PlayOneShot(sounds[0], .7f); //play item collect sound effect
             hasKey = true; //player has the key now
         }
 
         if(collision.gameObject.tag.Equals("Gate") && hasKey == true)
         {
             Debug.Log("unlocked Gate!");
+            soundEffects.PlayOneShot(sounds[1], .7f);
             SceneManager.LoadScene(2); //take to new scene
         }
     }
