@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
 
     //audio variables
     public AudioSource soundEffects;
-    public AudioClip itemCollect;
-    public AudioClip gateEnter;
     public AudioClip[] sounds;
 
 
@@ -83,24 +81,24 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //check if colliding with a game object with specific tag
-        if(collision.gameObject.tag.Equals("door1"))
+        if(collision.gameObject.tag.Equals("Door"))
         {
             Debug.Log("change scene");
             SceneManager.LoadScene("Outside");
         }
 
-        if(collision.gameObject.tag.Equals("key"))
+        if(collision.gameObject.tag.Equals("Key"))
         {
             Debug.Log("obtained key");
-            soundEffects.PlayOneShot(sounds[0], .7f); //play item collect sound effect
+          //SoundEffects.PlayOneShot(sounds[0], .7f); //play item collect sound effect
             hasKey = true; //player has the key now
         }
 
         if(collision.gameObject.tag.Equals("Gate") && hasKey == true)
         {
             Debug.Log("unlocked Gate!");
-            soundEffects.PlayOneShot(sounds[1], .7f);
-            SceneManager.LoadScene(2); //take to new scene
+           //soundEffects.PlayOneShot(sounds[1], .7f);
+            SceneManager.LoadScene("Forest"); //take to new scene
         }
     }
 }
