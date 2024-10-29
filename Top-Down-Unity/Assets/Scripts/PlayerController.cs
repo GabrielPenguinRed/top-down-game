@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         soundEffects = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
-        if (instance = null) //if another instance of the player is in the scene
+        if (instance != null) //if another instance of the player is in the scene
         {
             Destroy(gameObject); //then destroy it
         }
@@ -87,6 +87,12 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Outside");
         }
 
+        if(collision.gameObject.tag.Equals("HouseDoor"))
+        {
+            Debug.Log("change scene");
+            SceneManager.LoadScene("Home");
+        }
+
         if(collision.gameObject.tag.Equals("Key"))
         {
             Debug.Log("obtained key");
@@ -99,6 +105,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("unlocked Gate!");
            //soundEffects.PlayOneShot(sounds[1], .7f);
             SceneManager.LoadScene("Forest"); //take to new scene
+        }
+
+        if (collision.gameObject.tag.Equals("ForestGate"))
+        {
+            Debug.Log("change scene");
+            SceneManager.LoadScene("Outside");
         }
     }
 }
